@@ -1,0 +1,6 @@
+{
+  "name": "Premium Personal Portfolio",
+  "description": "A high-end, modern, glassmorphism-style personal portfolio website.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
