@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X, Github, Linkedin, Twitter } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
+import { LinkedinColorful, TwitterColorful } from './SocialIcons';
 import { useState, useEffect } from 'react';
 import { PERSONAL_INFO } from '../data';
 
@@ -74,8 +75,8 @@ export default function Navbar() {
             <div className="h-4 w-[1px] bg-white/20"></div>
 
             <div className="flex items-center gap-4">
-              <a href={PERSONAL_INFO.github} className="text-slate-400 hover:text-white transition-colors"><Github className="w-5 h-5" /></a>
-              <a href={PERSONAL_INFO.linkedin} className="text-slate-400 hover:text-white transition-colors"><Linkedin className="w-5 h-5" /></a>
+              <a href={PERSONAL_INFO.github} className="hover:scale-110 transition-transform text-slate-400 hover:text-white"><Github className="w-5 h-5" /></a>
+              <a href={PERSONAL_INFO.linkedin} className="hover:scale-110 transition-transform"><LinkedinColorful className="w-5 h-5" /></a>
             </div>
           </div>
 
@@ -110,9 +111,9 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="flex justify-center gap-6 mt-8">
-                <a href={PERSONAL_INFO.github} className="text-slate-400 hover:text-white"><Github className="w-6 h-6" /></a>
-                <a href={PERSONAL_INFO.linkedin} className="text-slate-400 hover:text-white"><Linkedin className="w-6 h-6" /></a>
-                <a href={PERSONAL_INFO.twitter} className="text-slate-400 hover:text-white"><Twitter className="w-6 h-6" /></a>
+                <a href={PERSONAL_INFO.github} className="hover:scale-110 transition-transform text-slate-400 hover:text-white"><Github className="w-6 h-6" /></a>
+                <a href={PERSONAL_INFO.linkedin} className="hover:scale-110 transition-transform"><LinkedinColorful className="w-6 h-6" /></a>
+                <a href={PERSONAL_INFO.twitter} className="hover:scale-110 transition-transform"><TwitterColorful className="w-6 h-6" /></a>
               </div>
             </div>
           </motion.div>

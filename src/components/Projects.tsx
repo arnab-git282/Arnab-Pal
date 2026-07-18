@@ -107,7 +107,7 @@ export default function Projects() {
                   <div className="absolute top-4 right-4 z-20 flex gap-2 md:translate-y-[-150%] md:group-hover:translate-y-0 transition-transform duration-500 ease-out">
                     <a 
                       href={project.github}
-                      className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:bg-cyan-500 hover:text-slate-950 transition-colors box-neon-glow"
+                      className="w-10 h-10 rounded-full glass flex items-center justify-center text-white hover:scale-110 hover:bg-slate-800 transition-all box-neon-glow"
                     >
                       <Github className="w-5 h-5" />
                     </a>

@@ -3,10 +3,12 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useEffect, lazy, Suspense } from "react";
+import { useEffect, lazy, Suspense, useState, useRef } from "react";
+import { AnimatePresence } from "motion/react";
 import Lenis from "@studio-freight/lenis";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import Loader from "./components/Loader";
 
 const About = lazy(() => import("./components/About"));
 const Skills = lazy(() => import("./components/Skills"));
@@ -17,6 +19,9 @@ const Contact = lazy(() => import("./components/Contact"));
 const Footer = lazy(() => import("./components/Footer"));
 
 export default function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  const lenisRef = useRef<Lenis | null>(null);
+
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
@@ -24,6 +29,8 @@ export default function App() {
       touchMultiplier: 2,
       infinite: false,
     });
+    
+    lenisRef.current = lenis;
 
     function raf(time: number) {
       lenis.raf(time);
@@ -37,30 +44,46 @@ export default function App() {
     };
   }, []);
 
+  useEffect(() => {
+    if (isLoading) {
+      document.body.style.overflow = 'hidden';
+      lenisRef.current?.stop();
+    } else {
+      document.body.style.overflow = '';
+      lenisRef.current?.start();
+    }
+  }, [isLoading]);
+
   return (
-    <div className="relative w-full overflow-hidden bg-[#030712]">
-      {/* Global Background Effects */}
-      <div className="fixed inset-0 pointer-events-none z-[-1] will-change-transform">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(6,182,212,0.05)_0%,_rgba(0,0,0,0)_50%)]" />
-        <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_50%_0%,_rgba(139,92,246,0.05)_0%,_rgba(0,0,0,0)_50%)]" />
-      </div>
+    <>
+      <AnimatePresence mode="wait">
+        {isLoading && <Loader key="loader" onComplete={() => setIsLoading(false)} />}
+      </AnimatePresence>
 
-      <Navbar />
-      <main>
-        <Hero />
-        <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-slate-500">Loading...</div>}>
-          <About />
-          <Skills />
-          <Experience />
-          <Projects />
-          <Services />
-          <Contact />
+      <div className="relative w-full overflow-hidden bg-[#030712]">
+        {/* Global Background Effects */}
+        <div className="fixed inset-0 pointer-events-none z-[-1] will-change-transform">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(6,182,212,0.05)_0%,_rgba(0,0,0,0)_50%)]" />
+          <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_50%_0%,_rgba(139,92,246,0.05)_0%,_rgba(0,0,0,0)_50%)]" />
+        </div>
+
+        <Navbar />
+        <main>
+          <Hero />
+          <Suspense fallback={<div className="h-screen w-full flex items-center justify-center text-slate-500">Loading...</div>}>
+            <About />
+            <Skills />
+            <Experience />
+            <Projects />
+            <Services />
+            <Contact />
+          </Suspense>
+        </main>
+
+        <Suspense fallback={null}>
+          <Footer />
         </Suspense>
-      </main>
-
-      <Suspense fallback={null}>
-        <Footer />
-      </Suspense>
-    </div>
+      </div>
+    </>
   );
 }

@@ -1,5 +1,6 @@
 import { PERSONAL_INFO } from '../data';
-import { ArrowUp, Github, Linkedin, Twitter } from 'lucide-react';
+import { ArrowUp, Github } from 'lucide-react';
+import { GithubColorful, LinkedinColorful, TwitterColorful } from './SocialIcons';
 
 export default function Footer() {
   const scrollToTop = () => {
@@ -19,14 +20,29 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a href={PERSONAL_INFO.github} className="w-10 h-10 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white transition-colors">
+          <a 
+            href={PERSONAL_INFO.github} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white hover:scale-110 hover:shadow-[0_0_15px_rgba(34,211,238,0.5)] transition-all duration-300"
+          >
             <Github className="w-5 h-5" />
           </a>
-          <a href={PERSONAL_INFO.linkedin} className="w-10 h-10 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white transition-colors">
-            <Linkedin className="w-5 h-5" />
+          <a 
+            href={PERSONAL_INFO.linkedin} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full glass flex items-center justify-center hover:scale-110 hover:shadow-[0_0_15px_rgba(34,211,238,0.5)] transition-all duration-300"
+          >
+            <LinkedinColorful className="w-6 h-6" />
           </a>
-          <a href={PERSONAL_INFO.twitter} className="w-10 h-10 rounded-full glass flex items-center justify-center text-slate-400 hover:text-white transition-colors">
-            <Twitter className="w-5 h-5" />
+          <a 
+            href={PERSONAL_INFO.twitter} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="w-10 h-10 rounded-full glass flex items-center justify-center hover:scale-110 hover:shadow-[0_0_15px_rgba(34,211,238,0.5)] transition-all duration-300"
+          >
+            <TwitterColorful className="w-6 h-6" />
           </a>
         </div>
 
