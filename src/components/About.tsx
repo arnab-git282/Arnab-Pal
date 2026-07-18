@@ -24,22 +24,22 @@ export default function About() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 1, ease: "easeOut" }}
-          className="grid lg:grid-cols-2 gap-16 items-center"
+          className="flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 sm:gap-16 items-center"
         >
           <div>
             <h2 className="text-3xl md:text-5xl font-display font-bold mb-8 leading-tight">
               Building the future with AI, <br />
               <span className="text-slate-500">one project at a time.</span>
             </h2>
-            <div className="space-y-6 text-slate-400 text-lg leading-relaxed relative">
+            <div className="space-y-6 text-slate-400 text-base md:text-lg leading-relaxed relative break-words pr-2 md:pr-0">
               <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-gradient-to-b from-cyan-500 via-indigo-500 to-transparent opacity-50" />
-              <p className="pl-6">
+              <p className="pl-4 md:pl-6">
                 My journey into technology began with a curiosity about how software, websites, and artificial intelligence work. Today, I'm focused on learning, building, and improving my skills in AI, Python, web development, UI/UX design, and Android app development.
               </p>
-              <p className="pl-6">
+              <p className="pl-4 md:pl-6">
                 I use modern AI tools to transform ideas into responsive websites, innovative applications, and intuitive user experiences. My goal is to create digital products that are visually appealing, user-friendly, and solve real-world problems.
               </p>
-              <p className="pl-6">
+              <p className="pl-4 md:pl-6">
                 I'm constantly exploring new technologies, experimenting with AI-powered workflows, and building projects that help me grow as a developer. Every project is an opportunity to learn something new and improve my craft.
               </p>
             </div>
@@ -51,13 +51,13 @@ export default function About() {
             </div>
           </div>
 
-          <div className="relative flex justify-center items-center">
+          <div className="relative flex justify-center items-center w-full mt-4 lg:mt-0">
             <motion.div 
               initial={{ scale: 0.9, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="w-64 md:w-80 aspect-[4/5] rounded-[2rem] overflow-hidden glass p-2 relative box-neon-buzz group"
+              className="w-[clamp(230px,65vw,250px)] sm:w-[260px] md:w-80 aspect-[4/5] rounded-[2rem] overflow-hidden glass p-2 relative box-neon-buzz group"
             >
               <div className="w-full h-full rounded-[1.5rem] overflow-hidden relative">
                 <img 
@@ -74,11 +74,13 @@ export default function About() {
             <motion.div 
               animate={{ y: [0, -20, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-8 -left-8 md:-left-12 glass-card-premium p-6 rounded-2xl z-10 box-neon-glow"
+              className="absolute bottom-2 right-2 sm:bottom-4 sm:right-0 md:-bottom-8 md:right-auto md:-left-12 glass-card-premium p-2.5 sm:p-3 md:p-6 rounded-xl md:rounded-2xl z-10 box-neon-glow w-[165px] min-[375px]:w-[175px] sm:w-[190px] md:w-auto"
             >
-              <div className="text-xs font-mono text-cyan-400 mb-1 uppercase tracking-widest">Based in</div>
-              <div className="text-xl font-display font-bold text-white flex items-center gap-2">
-                📍 {PERSONAL_INFO.location}
+              <div className="text-[10px] min-[375px]:text-[11px] md:text-sm font-mono text-cyan-400 mb-0.5 md:mb-1 uppercase tracking-widest font-extrabold flex items-center gap-1 md:gap-2 whitespace-nowrap">
+                ARNAB PAL <motion.span animate={{ opacity: [1, 0.5, 1], scale: [1, 1.1, 1] }} transition={{ duration: 1.5, repeat: Infinity }}>🔥</motion.span>
+              </div>
+              <div className="text-[12px] min-[375px]:text-[13px] md:text-lg font-display font-extrabold text-white flex items-center gap-1 md:gap-2 whitespace-nowrap">
+                🚀 UI/UX Designer
               </div>
             </motion.div>
           </div>
