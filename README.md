@@ -25,8 +25,7 @@ Bankura, West Bengal, India
 
 ### 📫 Connect with Me
 - GitHub: https://github.com/mr-arnab999
-- LinkedIn: (Add your LinkedIn profile)
-- Email: (Add your email)
-
+- LinkedIn: https://www.linkedin.com/in/arnab-pal-5b3bb141b?utm_source=share_via&utm_content=profile&utm_medium=member_android)
+- Email:mrarnab861@gmail.com
 ---
 ⭐ Thank you for visiting my repository!
